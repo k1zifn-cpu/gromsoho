@@ -18,35 +18,20 @@
             background: #1e293b;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
-        h1 {
-            text-align: center;
-        }
+        h1 { text-align: center; }
 
         .header {
             text-align: right;
             margin-bottom: 30px;
-            line-height: 1.6;
         }
 
-        .section {
-            margin-bottom: 20px;
-        }
+        .section { margin-bottom: 20px; }
 
         .section-title {
             font-weight: bold;
             border-bottom: 1px solid #334155;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
             margin-bottom: 10px;
         }
 
@@ -56,18 +41,8 @@
             border-radius: 8px;
         }
 
-        .footer {
-            text-align: right;
-            margin-top: 30px;
-        }
-
         .gallery {
             margin-top: 40px;
-        }
-
-        .gallery h2 {
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         .images {
@@ -79,11 +54,32 @@
         .images img {
             width: 100%;
             border-radius: 10px;
+            cursor: pointer;
             transition: 0.3s;
         }
 
         .images img:hover {
             transform: scale(1.05);
+        }
+
+        /* FULLSCREEN VIEW */
+        .fullscreen {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -101,63 +97,66 @@
     <h1>ЗАЯВЛЕНИЕ</h1>
 
     <div class="section">
-        Я, <b>Гром Сохо</b>, находясь в должности <b>"Ефрейтор"</b>, прошу принять моё заявление на повышение до должности <b>"Сержант"</b>.
+        Я, <b>Гром Сохо</b>, прошу повысить меня до <b>"Сержант"</b>.
     </div>
 
     <div class="section">
-        <div class="section-title">К заявлению прикрепляю:</div>
-        <ul>
-            <li><b>Nick_Name:</b> Grom_Soho</li>
-            <li>Ксерокопии документов — <b>см. ниже</b></li>
-            <li><b>Взвод:</b> <span class="badge">КМБ</span></li>
-        </ul>
+        <div class="section-title">Информация:</div>
+        Nick_Name: Grom_Soho<br>
+        Взвод: <span class="badge">КМБ</span>
     </div>
 
     <div class="section">
-        <div class="section-title">Проделанная работа:</div>
-        <ul>
-            <li>Присутствовал на тренировке — <b>доказательства ниже</b></li>
-            <li>Присутствовал на спец. задании — <b>доказательства ниже</b></li>
-            <li>Отстоял пост "Тумбочка" 30 минут — <b>доказательства ниже</b></li>
-            <li>Выбран взвод: <span class="badge">ГОиР</span></li>
-        </ul>
-    </div>
-
-    <div class="footer">
-        Дата: 20.04.2026<br>
-        Подпись: <b>By Soho</b>
+        <div class="section-title">Работа:</div>
+        Все доказательства — ниже
     </div>
 
     <div class="gallery">
         <h2>Доказательства</h2>
         <div class="images">
-            <img src="02iqIIw.jpeg">
-            <img src="3ICfOHK.jpeg">
-            <img src="3z8TRd7.jpeg">
-            <img src="55xOPDc.jpeg">
-            <img src="5SCuT1P.jpeg">
-            <img src="6RyFWUE.jpeg">
-            <img src="6ilSQAj.jpeg">
-            <img src="8WWdwM7.jpeg">
-            <img src="Dquyafi.jpeg">
-            <img src="EhAjJVI.jpeg">
-            <img src="EqGYflZ.jpeg">
-            <img src="Qh23m2S.jpeg">
-            <img src="SNfwPMj.jpeg">
-            <img src="STXbdBI.jpeg">
-            <img src="f4S2kok.jpeg">
-            <img src="hkutamL.jpeg">
-            <img src="jy91qO2.jpeg">
-            <img src="mTUhrHp.jpeg">
-            <img src="rPjyrwP.jpeg">
-            <img src="sd92XWk.jpeg">
-            <img src="toJUapk.jpeg">
-            <img src="xIXVjHH.jpeg">
-            <img src="z1IjVaC.jpeg">
+            <img src="02iqIIw.jpeg" onclick="openImage(this.src)">
+            <img src="3ICfOHK.jpeg" onclick="openImage(this.src)">
+            <img src="3z8TRd7.jpeg" onclick="openImage(this.src)">
+            <img src="55xOPDc.jpeg" onclick="openImage(this.src)">
+            <img src="5SCuT1P.jpeg" onclick="openImage(this.src)">
+            <img src="6RyFWUE.jpeg" onclick="openImage(this.src)">
+            <img src="6ilSQAj.jpeg" onclick="openImage(this.src)">
+            <img src="8WWdwM7.jpeg" onclick="openImage(this.src)">
+            <img src="Dquyafi.jpeg" onclick="openImage(this.src)">
+            <img src="EhAjJVI.jpeg" onclick="openImage(this.src)">
+            <img src="EqGYflZ.jpeg" onclick="openImage(this.src)">
+            <img src="Qh23m2S.jpeg" onclick="openImage(this.src)">
+            <img src="SNfwPMj.jpeg" onclick="openImage(this.src)">
+            <img src="STXbdBI.jpeg" onclick="openImage(this.src)">
+            <img src="f4S2kok.jpeg" onclick="openImage(this.src)">
+            <img src="hkutamL.jpeg" onclick="openImage(this.src)">
+            <img src="jy91qO2.jpeg" onclick="openImage(this.src)">
+            <img src="mTUhrHp.jpeg" onclick="openImage(this.src)">
+            <img src="rPjyrwP.jpeg" onclick="openImage(this.src)">
+            <img src="sd92XWk.jpeg" onclick="openImage(this.src)">
+            <img src="toJUapk.jpeg" onclick="openImage(this.src)">
+            <img src="xIXVjHH.jpeg" onclick="openImage(this.src)">
+            <img src="z1IjVaC.jpeg" onclick="openImage(this.src)">
         </div>
     </div>
 
 </div>
+
+<!-- FULLSCREEN -->
+<div class="fullscreen" id="fullscreen" onclick="closeImage()">
+    <img id="fullImg">
+</div>
+
+<script>
+function openImage(src) {
+    document.getElementById("fullscreen").style.display = "flex";
+    document.getElementById("fullImg").src = src;
+}
+
+function closeImage() {
+    document.getElementById("fullscreen").style.display = "none";
+}
+</script>
 
 </body>
 </html>
