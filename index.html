@@ -1,162 +1,115 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Заявление на повышение</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-            margin: 0;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<title>Grom_Soho | МО</title>
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 15px;
-        }
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0b1120;
+    color:white;
+}
 
-        h1 { text-align: center; }
+/* ШАПКА */
+.header {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111827;
+    padding:15px;
+    position:relative;
+    box-shadow:0 0 10px #000;
+}
 
-        .header {
-            text-align: right;
-            margin-bottom: 30px;
-        }
+.menu {
+    position:absolute;
+    right:20px;
+}
 
-        .section { margin-bottom: 20px; }
+.menu a {
+    background:#2563eb;
+    padding:8px 15px;
+    border-radius:8px;
+    color:white;
+    text-decoration:none;
+}
 
-        .section-title {
-            font-weight: bold;
-            border-bottom: 1px solid #334155;
-            margin-bottom: 10px;
-        }
+/* КАРТОЧКА */
+.card {
+    max-width:700px;
+    margin:40px auto;
+    background:#111827;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,0.7);
+    text-align:center;
+}
 
-        .badge {
-            background: #334155;
-            padding: 5px 10px;
-            border-radius: 8px;
-        }
+.avatar {
+    width:120px;
+    border-radius:50%;
+    margin-bottom:15px;
+}
 
-        .gallery {
-            margin-top: 40px;
-        }
+.info p {
+    margin:5px 0;
+}
 
-        .images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
+/* КНОПКИ */
+.buttons {
+    margin-top:20px;
+}
 
-        .images img {
-            width: 100%;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.buttons a {
+    display:block;
+    margin:10px 0;
+    padding:12px;
+    background:#2563eb;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
 
-        .images img:hover {
-            transform: scale(1.05);
-        }
-
-        /* FULLSCREEN VIEW */
-        .fullscreen {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .fullscreen img {
-            max-width: 95%;
-            max-height: 95%;
-            border-radius: 10px;
-        }
-    </style>
+.buttons a:hover {
+    background:#1d4ed8;
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
-
-    <div class="header">
-        Генералу Министерства Обороны<br>
-        по Нижегородской области<br>
-        Матвею Берберри<br><br>
-        От "Ефрейтор" "Гром Сохо"
+<div class="header">
+    <h2>Grom_Soho</h2>
+    <div class="menu">
+        <a href="general.html">Главное меню</a>
     </div>
-
-    <h1>ЗАЯВЛЕНИЕ</h1>
-
-    <div class="section">
-        Я, <b>Гром Сохо</b>, прошу повысить меня до <b>"Сержант"</b>.
-    </div>
-
-    <div class="section">
-        <div class="section-title">Информация:</div>
-        Nick_Name: Grom_Soho<br>
-        Взвод: <span class="badge">КМБ</span>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Работа:</div>
-        Все доказательства — ниже
-    </div>
-
-    <div class="gallery">
-        <h2>Доказательства</h2>
-        <div class="images">
-            <img src="02iqIIw.jpeg" onclick="openImage(this.src)">
-            <img src="3ICfOHK.jpeg" onclick="openImage(this.src)">
-            <img src="3z8TRd7.jpeg" onclick="openImage(this.src)">
-            <img src="55xOPDc.jpeg" onclick="openImage(this.src)">
-            <img src="5SCuT1P.jpeg" onclick="openImage(this.src)">
-            <img src="6RyFWUE.jpeg" onclick="openImage(this.src)">
-            <img src="6ilSQAj.jpeg" onclick="openImage(this.src)">
-            <img src="8WWdwM7.jpeg" onclick="openImage(this.src)">
-            <img src="Dquyafi.jpeg" onclick="openImage(this.src)">
-            <img src="EhAjJVI.jpeg" onclick="openImage(this.src)">
-            <img src="EqGYflZ.jpeg" onclick="openImage(this.src)">
-            <img src="Qh23m2S.jpeg" onclick="openImage(this.src)">
-            <img src="SNfwPMj.jpeg" onclick="openImage(this.src)">
-            <img src="STXbdBI.jpeg" onclick="openImage(this.src)">
-            <img src="f4S2kok.jpeg" onclick="openImage(this.src)">
-            <img src="hkutamL.jpeg" onclick="openImage(this.src)">
-            <img src="jy91qO2.jpeg" onclick="openImage(this.src)">
-            <img src="mTUhrHp.jpeg" onclick="openImage(this.src)">
-            <img src="rPjyrwP.jpeg" onclick="openImage(this.src)">
-            <img src="sd92XWk.jpeg" onclick="openImage(this.src)">
-            <img src="toJUapk.jpeg" onclick="openImage(this.src)">
-            <img src="xIXVjHH.jpeg" onclick="openImage(this.src)">
-            <img src="z1IjVaC.jpeg" onclick="openImage(this.src)">
-        </div>
-    </div>
-
 </div>
 
-<!-- FULLSCREEN -->
-<div class="fullscreen" id="fullscreen" onclick="closeImage()">
-    <img id="fullImg">
+<div class="card">
+    <img src="https://i.imgur.com/6VBx3io.png" class="avatar">
+
+    <div class="info">
+        <p><b>Сервер:</b> 18 Radmir CRMP</p>
+        <p><b>Статус:</b> Ефрейтор КМБ</p>
+        <p><b>МО</b></p>
+        <p><b>Уровень:</b> 10+</p>
+        <p><b>Телефон:</b> 220077</p>
+    </div>
+
+    <p>
+        Министерство Обороны — топ фракция.  
+        Сильный состав, адекватные лидеры и постоянный движ.  
+        Советую всем вступать 💪
+    </p>
+
+    <div class="buttons">
+        <a href="1rang.html">Рядовой → Ефрейтор</a>
+        <a href="2rang.html">Ефрейтор → Сержант</a>
+    </div>
 </div>
-
-<script>
-function openImage(src) {
-    document.getElementById("fullscreen").style.display = "flex";
-    document.getElementById("fullImg").src = src;
-}
-
-function closeImage() {
-    document.getElementById("fullscreen").style.display = "none";
-}
-</script>
 
 </body>
 </html>
