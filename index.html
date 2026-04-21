@@ -13,7 +13,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             background: #1e293b;
             padding: 30px;
@@ -21,9 +21,8 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
-        h1, h2 {
+        h1 {
             text-align: center;
-            margin-bottom: 10px;
         }
 
         .header {
@@ -38,8 +37,8 @@
 
         .section-title {
             font-weight: bold;
-            margin-bottom: 10px;
             border-bottom: 1px solid #334155;
+            margin-bottom: 10px;
             padding-bottom: 5px;
         }
 
@@ -51,26 +50,40 @@
             margin-bottom: 10px;
         }
 
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            margin-top: 30px;
-            text-align: right;
-        }
-
         .badge {
             background: #334155;
             padding: 5px 10px;
             border-radius: 8px;
-            display: inline-block;
-            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        .gallery {
+            margin-top: 40px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .images img {
+            width: 100%;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .images img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -95,19 +108,7 @@
         <div class="section-title">К заявлению прикрепляю:</div>
         <ul>
             <li><b>Nick_Name:</b> Grom_Soho</li>
-
-            <li><b>Личное дело:</b><br>
-                <a href="https://imgur.com/a/xB8Zh8V" target="_blank">Смотреть</a>
-            </li>
-
-            <li><b>Список сотрудников:</b><br>
-                <a href="https://imgur.com/a/xB8Zh8V" target="_blank">Смотреть</a>
-            </li>
-
-            <li><b>Трудовая история:</b><br>
-                <a href="https://imgur.com/a/xB8Zh8V" target="_blank">Смотреть</a>
-            </li>
-
+            <li>Ксерокопии документов — <b>см. ниже</b></li>
             <li><b>Взвод:</b> <span class="badge">КМБ</span></li>
         </ul>
     </div>
@@ -115,18 +116,9 @@
     <div class="section">
         <div class="section-title">Проделанная работа:</div>
         <ul>
-            <li>Тренировка: 
-                <a href="https://imgur.com/a/x88qN6B" target="_blank">Доказательство</a>
-            </li>
-
-            <li>Спец. задание: 
-                <a href="https://imgur.com/a/x88qN6B" target="_blank">Доказательство</a>
-            </li>
-
-            <li>Пост "Тумбочка" 30 минут: 
-                <a href="https://imgur.com/a/WfVcuwR" target="_blank">Доказательство</a>
-            </li>
-
+            <li>Присутствовал на тренировке — <b>доказательства ниже</b></li>
+            <li>Присутствовал на спец. задании — <b>доказательства ниже</b></li>
+            <li>Отстоял пост "Тумбочка" 30 минут — <b>доказательства ниже</b></li>
             <li>Выбран взвод: <span class="badge">ГОиР</span></li>
         </ul>
     </div>
@@ -134,6 +126,35 @@
     <div class="footer">
         Дата: 20.04.2026<br>
         Подпись: <b>By Soho</b>
+    </div>
+
+    <div class="gallery">
+        <h2>Доказательства</h2>
+        <div class="images">
+            <img src="02iqIIw.jpeg">
+            <img src="3ICfOHK.jpeg">
+            <img src="3z8TRd7.jpeg">
+            <img src="55xOPDc.jpeg">
+            <img src="5SCuT1P.jpeg">
+            <img src="6RyFWUE.jpeg">
+            <img src="6ilSQAj.jpeg">
+            <img src="8WWdwM7.jpeg">
+            <img src="Dquyafi.jpeg">
+            <img src="EhAjJVI.jpeg">
+            <img src="EqGYflZ.jpeg">
+            <img src="Qh23m2S.jpeg">
+            <img src="SNfwPMj.jpeg">
+            <img src="STXbdBI.jpeg">
+            <img src="f4S2kok.jpeg">
+            <img src="hkutamL.jpeg">
+            <img src="jy91qO2.jpeg">
+            <img src="mTUhrHp.jpeg">
+            <img src="rPjyrwP.jpeg">
+            <img src="sd92XWk.jpeg">
+            <img src="toJUapk.jpeg">
+            <img src="xIXVjHH.jpeg">
+            <img src="z1IjVaC.jpeg">
+        </div>
     </div>
 
 </div>
