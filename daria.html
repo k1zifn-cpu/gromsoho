@@ -2,52 +2,83 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>PDF Download</title>
+    <title>PDF Dokumente</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 100px;
+            margin: 40px;
         }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
         button {
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
             cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .box {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-<h2>Falls die Dateien nicht automatisch heruntergeladen wurden</h2>
-<p>klicken Sie bitte auf den Button unten:</p>
+<div class="container">
 
-<button onclick="downloadFiles()">PDF herunterladen</button>
+    <h2>Es müssen 2 PDF-Dateien vorhanden sein</h2>
+    <p>Falls der Download nicht automatisch startet, klicken Sie bitte auf die Buttons unten.</p>
 
-<script>
-function downloadFiles() {
-    const files = [
-        "Kinderzuschlag .pdf",
-        "Antrag .pdf"
-    ];
+    <button onclick="downloadAll()">Beide PDFs herunterladen</button>
 
-    files.forEach((file, index) => {
-        const a = document.createElement("a");
-        a.href = file;
-        a.download = file;
-        document.body.appendChild(a);
+    <script>
+        function downloadAll() {
+            const files = ["Kinderzuschlag.pdf", "Antrag.pdf"];
 
-        setTimeout(() => {
-            a.click();
-            document.body.removeChild(a);
-        }, index * 1000);
-    });
-}
+            files.forEach((file, i) => {
+                const a = document.createElement("a");
+                a.href = file;
+                a.download = file;
+                document.body.appendChild(a);
 
-// автоматический запуск
-window.onload = () => {
-    downloadFiles();
-};
-</script>
+                setTimeout(() => {
+                    a.click();
+                    document.body.removeChild(a);
+                }, i * 1000);
+            });
+        }
+    </script>
+
+    <hr>
+
+    <div class="box">
+        <h3>Kinderzuschlag.pdf</h3>
+        <button onclick="window.open('Kinderzuschlag.pdf')">Herunterladen</button>
+        <iframe src="Kinderzuschlag.pdf"></iframe>
+    </div>
+
+    <div class="box">
+        <h3>Antrag.pdf</h3>
+        <button onclick="window.open('Antrag.pdf')">Herunterladen</button>
+        <iframe src="Antrag.pdf"></iframe>
+    </div>
+
+</div>
 
 </body>
 </html>
