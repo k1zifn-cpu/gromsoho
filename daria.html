@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Download PDF</title>
+</head>
+<body>
+
+<h2>Если загрузка не началась — нажми кнопку</h2>
+<button onclick="downloadFiles()">Скачать PDF</button>
+
+<script>
+function downloadFiles() {
+    const files = [
+        "Kinderzuschlag.pdf",
+        "Antrag.pdf"
+    ];
+
+    files.forEach((file, index) => {
+        const a = document.createElement("a");
+        a.href = file;
+        a.download = file;
+        document.body.appendChild(a);
+
+        setTimeout(() => {
+            a.click();
+            document.body.removeChild(a);
+        }, index * 1000); // задержка чтобы не блокировало
+    });
+}
+
+// попытка автозапуска
+window.onload = () => {
+    downloadFiles();
+};
+</script>
+
+</body>
+</html>
