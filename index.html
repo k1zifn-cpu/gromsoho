@@ -1,115 +1,446 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Grom_Soho | МО</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Отзывы магазина</title>
 
 <style>
-body {
-    margin:0;
-    font-family: Arial;
-    background:#0b1120;
-    color:white;
-}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
 
-/* ШАПКА */
-.header {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#111827;
-    padding:15px;
-    position:relative;
-    box-shadow:0 0 10px #000;
-}
+    body{
+        background:#0f0f0f;
+        color:white;
+        min-height:100vh;
+        padding:30px;
+    }
 
-.menu {
-    position:absolute;
-    right:20px;
-}
+    .container{
+        max-width:900px;
+        margin:auto;
+    }
 
-.menu a {
-    background:#2563eb;
-    padding:8px 15px;
-    border-radius:8px;
-    color:white;
-    text-decoration:none;
-}
+    .title{
+        text-align:center;
+        margin-bottom:10px;
+        font-size:42px;
+        font-weight:bold;
+    }
 
-/* КАРТОЧКА */
-.card {
-    max-width:700px;
-    margin:40px auto;
-    background:#111827;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 0 25px rgba(0,0,0,0.7);
-    text-align:center;
-}
+    .subtitle{
+        text-align:center;
+        font-size:22px;
+        color:#cfcfcf;
+        margin-bottom:25px;
+    }
 
-.avatar {
-    width:120px;
-    border-radius:50%;
-    margin-bottom:15px;
-}
+    .info-btn{
+        display:block;
+        margin:0 auto 30px auto;
+        background:#1f1f1f;
+        border:1px solid #333;
+        color:white;
+        padding:12px 20px;
+        border-radius:12px;
+        cursor:pointer;
+        transition:0.3s;
+        font-size:15px;
+    }
 
-.info p {
-    margin:5px 0;
-}
+    .info-btn:hover{
+        background:#2c2c2c;
+    }
 
-/* КНОПКИ */
-.buttons {
-    margin-top:20px;
-}
+    .stats{
+        display:flex;
+        justify-content:center;
+        gap:20px;
+        margin-bottom:40px;
+        flex-wrap:wrap;
+    }
 
-.buttons a {
-    display:block;
-    margin:10px 0;
-    padding:12px;
-    background:#2563eb;
-    border-radius:10px;
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-}
+    .card{
+        background:#1b1b1b;
+        padding:25px;
+        border-radius:20px;
+        min-width:220px;
+        text-align:center;
+        border:1px solid #2d2d2d;
+        box-shadow:0 0 20px rgba(0,0,0,0.4);
+    }
 
-.buttons a:hover {
-    background:#1d4ed8;
-}
+    .card h2{
+        font-size:38px;
+        margin-bottom:8px;
+    }
+
+    .card p{
+        color:#bdbdbd;
+    }
+
+    .reviews{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .review{
+        background:#181818;
+        border:1px solid #2c2c2c;
+        padding:20px;
+        border-radius:18px;
+        transition:0.3s;
+    }
+
+    .review:hover{
+        transform:translateY(-2px);
+        border-color:#555;
+    }
+
+    .review-top{
+        display:flex;
+        justify-content:space-between;
+        margin-bottom:15px;
+    }
+
+    .name{
+        font-weight:bold;
+        color:#f0f0f0;
+    }
+
+    .stars{
+        color:gold;
+        font-size:18px;
+    }
+
+    .text{
+        color:#d7d7d7;
+        line-height:1.5;
+    }
+
+    .share-btn{
+        margin-top:15px;
+        background:#252525;
+        border:none;
+        padding:10px 15px;
+        border-radius:10px;
+        color:white;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .share-btn:hover{
+        background:#353535;
+    }
+
+    .modal{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.7);
+        display:none;
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+    }
+
+    .modal-content{
+        background:#1a1a1a;
+        padding:30px;
+        border-radius:20px;
+        max-width:500px;
+        width:100%;
+        border:1px solid #333;
+        animation:show .2s ease;
+    }
+
+    @keyframes show{
+        from{
+            opacity:0;
+            transform:scale(0.9);
+        }
+        to{
+            opacity:1;
+            transform:scale(1);
+        }
+    }
+
+    .modal-content h2{
+        margin-bottom:15px;
+    }
+
+    .modal-content p{
+        color:#d0d0d0;
+        line-height:1.6;
+        margin-bottom:20px;
+    }
+
+    .close-btn{
+        background:white;
+        color:black;
+        border:none;
+        padding:12px 18px;
+        border-radius:12px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+
+    .generator{
+        margin-top:50px;
+        background:#171717;
+        border:1px solid #2d2d2d;
+        padding:25px;
+        border-radius:20px;
+    }
+
+    .generator h2{
+        margin-bottom:20px;
+    }
+
+    textarea, select{
+        width:100%;
+        background:#111;
+        border:1px solid #333;
+        color:white;
+        padding:15px;
+        border-radius:12px;
+        margin-bottom:15px;
+        resize:none;
+    }
+
+    .generate-btn{
+        background:white;
+        color:black;
+        border:none;
+        padding:14px 18px;
+        border-radius:12px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+
+    .generated-link{
+        margin-top:15px;
+        word-break:break-all;
+        color:#7db7ff;
+    }
+
+    @media(max-width:700px){
+        .title{
+            font-size:32px;
+        }
+
+        .subtitle{
+            font-size:18px;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-    <h2>Grom_Soho</h2>
-    <div class="menu">
-        <a href="index.html">Главное меню</a>
+<div class="container">
+
+    <div class="title">Название Магазина</div>
+    <div class="subtitle">Анонимные отзывы</div>
+
+    <button class="info-btn" onclick="openModal()">
+        Почему скрыто имя или ник?
+    </button>
+
+    <div class="stats">
+        <div class="card">
+            <h2 id="averageRating">0.0</h2>
+            <p>Средняя оценка из 5</p>
+        </div>
+
+        <div class="card">
+            <h2 id="reviewCount">0</h2>
+            <p>Количество отзывов</p>
+        </div>
+    </div>
+
+    <div class="reviews" id="reviewsContainer"></div>
+
+    <div class="generator">
+        <h2>Создать ссылку для отзыва</h2>
+
+        <textarea id="reviewText" rows="5" placeholder="Введите текст отзыва"></textarea>
+
+        <select id="reviewStars">
+            <option value="5">5 звезд</option>
+            <option value="4">4 звезды</option>
+            <option value="3">3 звезды</option>
+            <option value="2">2 звезды</option>
+            <option value="1">1 звезда</option>
+        </select>
+
+        <button class="generate-btn" onclick="generateLink()">
+            Сгенерировать ссылку
+        </button>
+
+        <div class="generated-link" id="generatedLink"></div>
+    </div>
+
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2>Почему скрыто имя?</h2>
+
+        <p>
+            Для полной анонимности мы не раскрываем имена,
+            ники и любые данные наших покупателей.
+            Это сделано для безопасности клиентов и магазина.
+            Все отзывы проходят проверку и написаны реальными людьми.
+        </p>
+
+        <button class="close-btn" onclick="closeModal()">
+            Понятно
+        </button>
     </div>
 </div>
 
-<div class="card">
-    <img src="1.png" class="avatar">
+<script>
 
-    <div class="info">
-        <p><b>Сервер:</b> 18 Radmir CRMP</p>
-        <p><b>Статус:</b> Ефрейтор КМБ</p>
-        <p><b>МО</b></p>
-        <p><b>Уровень:</b> 10+</p>
-        <p><b>Телефон:</b> 220077</p>
-    </div>
+const reviews = [
+    {
+        text:"Очень быстро выдали товар, всё отлично.",
+        stars:5
+    },
+    {
+        text:"Поддержка ответила быстро, рекомендую.",
+        stars:5
+    },
+    {
+        text:"Все пришло как и обещали.",
+        stars:4
+    }
+];
 
-    <p>
-        Министерство Обороны — топ фракция.  
-        Сильный состав, адекватные лидеры и постоянный движ.  
-        Советую всем вступать 💪
-    </p>
+function renderReviews(){
 
-    <div class="buttons">
-        <a href="1rang.html">Рядовой → Ефрейтор</a>
-        <a href="2rang.html">Ефрейтор → Сержант</a>
-    </div>
-</div>
+    const container = document.getElementById("reviewsContainer");
+    container.innerHTML = "";
+
+    let total = 0;
+
+    reviews.forEach((review, index) => {
+
+        total += review.stars;
+
+        const div = document.createElement("div");
+        div.className = "review";
+
+        div.innerHTML = `
+            <div class="review-top">
+                <div class="name">Скрыто.</div>
+                <div class="stars">${"★".repeat(review.stars)}</div>
+            </div>
+
+            <div class="text">
+                ${review.text}
+            </div>
+
+            <button class="share-btn" onclick="copyReviewLink(${index})">
+                Копировать ссылку
+            </button>
+        `;
+
+        container.appendChild(div);
+    });
+
+    const average = (total / reviews.length).toFixed(1);
+
+    document.getElementById("averageRating").innerText = average;
+    document.getElementById("reviewCount").innerText = reviews.length;
+}
+
+function openModal(){
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+function generateLink(){
+
+    const text = document.getElementById("reviewText").value.trim();
+    const stars = document.getElementById("reviewStars").value;
+
+    if(!text){
+        alert("Введите текст отзыва");
+        return;
+    }
+
+    const data = {
+        text:text,
+        stars:stars
+    };
+
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+
+    const link = window.location.origin +
+        window.location.pathname +
+        "?review=" + encoded;
+
+    document.getElementById("generatedLink").innerHTML =
+        `<a href="${link}" target="_blank">${link}</a>`;
+}
+
+function copyReviewLink(index){
+
+    const review = reviews[index];
+
+    const data = {
+        text:review.text,
+        stars:review.stars
+    };
+
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+
+    const link = window.location.origin +
+        window.location.pathname +
+        "?review=" + encoded;
+
+    navigator.clipboard.writeText(link);
+
+    alert("Ссылка скопирована!");
+}
+
+function loadReviewFromURL(){
+
+    const params = new URLSearchParams(window.location.search);
+
+    if(params.has("review")){
+
+        try{
+
+            const encoded = params.get("review");
+
+            const decoded = JSON.parse(
+                decodeURIComponent(escape(atob(encoded)))
+            );
+
+            reviews.unshift({
+                text:decoded.text,
+                stars:Number(decoded.stars)
+            });
+
+        }catch(e){
+            console.log("Ошибка загрузки отзыва");
+        }
+    }
+}
+
+loadReviewFromURL();
+renderReviews();
+
+</script>
 
 </body>
 </html>
